@@ -8,6 +8,6 @@ _[Old Clock - https://github.com/NolanKingdon/hex-clock](https://github.com/Nola
 As a benefit, this electron app remains on top of other applications, increasing its visibility.
 
 ## Comparison Image
-![Comparison Image](https://github.com/NolanKingdon/electron-hex-clock/tree/master/images/comparison.png "Comparison Image")
+![Comparison Image](https://github.com/NolanKingdon/electron-hex-clock/images/comparison.png "Comparison Image")
 
 Just electron and vanilla JavaScript
