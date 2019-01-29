@@ -8,7 +8,7 @@ let time = {
   minutes: startTime.getMinutes(),
   hours: startTime.getHours(),
   day: startTime.getDate(),
-  month: startTime.getMonth(),
+  month: startTime.getMonth()+1,
   year: startTime.getFullYear()
 }
 let backgroundColor = "#" + time.hours + time.minutes + time.seconds;
@@ -42,7 +42,7 @@ function updateTime(time){
           minutes: currTime.getMinutes(),
           hours: currTime.getHours(),
           days: currTime.getDate(),
-          month: startTime.getMonth(),
+          month: startTime.getMonth()+1,
           year: startTime.getFullYear()
         }
       } else {
