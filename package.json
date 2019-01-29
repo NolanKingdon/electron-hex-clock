@@ -1,0 +1,14 @@
+{
+  "name": "electron-clock",
+  "version": "1.0.0",
+  "description": "Simple app to test out electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Nolan Kingdon",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^4.0.2"
+  }
+}

@@ -1,0 +1,22 @@
+body {
+  transition: 0.5s;
+  text-align: center;
+}
+
+h1 {
+  position: relative;
+  top: 40vh;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 7vw;
+  font-weight: 400;
+}
+
+h2 {
+  position: relative;
+  top: 40vh;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 4vw;
+  font-weight: 400;
+}
