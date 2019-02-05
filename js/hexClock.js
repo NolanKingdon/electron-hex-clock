@@ -3,13 +3,22 @@ let currTime = startTime;
 const clock = document.getElementById("clock");
 const date = document.getElementById("date");
 const body = document.getElementById("clock-body");
-let time = {
+/*let time = {
   seconds: startTime.getSeconds(),
   minutes: startTime.getMinutes(),
   hours: startTime.getHours(),
   day: startTime.getDate(),
   month: startTime.getMonth()+1,
   year: startTime.getFullYear()
+}*/
+
+let time = {
+  seconds:58,
+  minutes:59,
+  hours:23,
+  day:5,
+  month:2,
+  year:2019
 }
 let backgroundColor = "#" + time.hours + time.minutes + time.seconds;
 
@@ -25,12 +34,12 @@ function setBackground(time){
   body.style.backgroundColor = "#" + time.hours + time.minutes + time.seconds;
 }
 
-function updateTime(time){
-  if(time.seconds === 59) {
-    time.seconds = "00";
-    if(time.minutes === 59) {
-      time.minutes = 0;
-      if (time.hours === 23){
+function updateTime(oldTime){
+  if(oldTime.seconds === 59) {
+    oldTime.seconds = "00";
+    if(oldTime.minutes === 59) {
+      oldTime.minutes = 0;
+      if (oldTime.hours === 23){
         currTime = new Date();
         /*
         Requesting a new Date daily - ensures I don't have to calculate days in
@@ -41,18 +50,18 @@ function updateTime(time){
           seconds: currTime.getSeconds(),
           minutes: currTime.getMinutes(),
           hours: currTime.getHours(),
-          days: currTime.getDate(),
-          month: startTime.getMonth()+1,
-          year: startTime.getFullYear()
+          day: currTime.getDate(),
+          month: currTime.getMonth()+1,
+          year: currTime.getFullYear()
         }
       } else {
-        time.hours ++;
+        oldTime.hours ++;
       }
     } else {
-      time.minutes ++;
+      oldTime.minutes ++;
     }
   } else {
-    time.seconds ++;
+    oldTime.seconds ++;
   }
 
   if(time.seconds.toString().length === 1){
