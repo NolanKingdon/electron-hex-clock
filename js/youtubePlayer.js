@@ -15,7 +15,7 @@ function loadClient(inputValue) {
 }
 // Make sure the client is loaded before calling this method.
 
-let submitButton = document.getElementById("submit-button");
+let submitButton = document.getElementById("yt-submit");
 let inputValue;
 submitButton.addEventListener("click", () => {
   let input = document.getElementById("youtube-input");

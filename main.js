@@ -31,7 +31,7 @@ function createWindow(){
   }));
 
   //To open dev tools (Dev only)
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
 
   //Handling close
   win.on("closed", () => { win = null });
