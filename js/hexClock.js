@@ -2,7 +2,7 @@ const startTime = new Date();
 let currTime = startTime;
 const clock = document.getElementById("clock");
 const date = document.getElementById("date");
-const body = document.getElementById("clock-body");
+const body = document.getElementsByTagName("body")[0];
 /*let time = {
   seconds: startTime.getSeconds(),
   minutes: startTime.getMinutes(),

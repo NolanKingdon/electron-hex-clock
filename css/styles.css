@@ -1,22 +1,81 @@
-body {
-  transition: 0.5s;
-  text-align: center;
+* {
+
+  margin: 0;
+  padding: 0;
+
 }
 
-h1 {
-  position: relative;
-  top: 40vh;
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/*
+============================
+||        Clock           ||
+============================
+ */
+#clock-body {
+  transition: 0.5s;
+  text-align: center;
+  height: 65vh;
+  width: 100%;
+}
+
+#clock-wrapper {
+  margin-top: 32vh;
+}
+
+#clock-body h1 {
   color: white;
   font-family: 'Roboto Mono', monospace;
   font-size: 7vw;
   font-weight: 400;
 }
 
-h2 {
-  position: relative;
-  top: 38vh;
+#clock-body h2 {
   color: white;
   font-family: 'Roboto Mono', monospace;
   font-size: 4vw;
   font-weight: 400;
+}
+
+/*
+============================
+||        Youtube         ||
+============================
+ */
+
+ #youtube-body {
+   height: 35vh;
+   /* background-color: blue; */
+}
+
+#yt-search-results {
+  display: flex;
+  overflow-x: scroll;
+  display: none;
+}
+
+.yt-search-result-item {
+  margin: 0px 5px;
+}
+
+.yt-search-result-item:hover {
+  cursor: pointer;
+}
+
+.yt-search-video-title {
+  font-size: 12pt;
+  color: white;
+  text-align: center;
+  text-transform: capitalize;
+  font-family: sans-serif;
+}
+
+.yt-search-video-thumb {
+  width: 150px;
+  height: auto;
 }
