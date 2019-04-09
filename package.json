@@ -9,6 +9,7 @@
   "author": "Nolan Kingdon",
   "license": "ISC",
   "dependencies": {
-    "electron": "^4.0.2"
+    "electron": "^4.0.2",
+    "systeminformation": "^4.1.4"
   }
 }

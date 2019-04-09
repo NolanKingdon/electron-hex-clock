@@ -87,14 +87,16 @@ function displayVideos(videoList){//Displaying Search results on dash
 
     vidContainer.appendChild(vidTitle);
     vidContainer.appendChild(thumbnail);
+    console.log("Should work");
     resultContainer.appendChild(vidContainer);
-    resultContainer.style.display = "flex";
   }
 
+  resultContainer.style.display = "flex";
+  resultContainer.style.bottom = "0px";
 }
 
 gapi.load("client");
-
+let openPage = false;
 
 
 
@@ -111,12 +113,46 @@ gapi.load("client");
 //             link: "https://www.youtube.com/watch?v=nkhpGC10OVw",
 //             thumbURL: "https://i.ytimg.com/vi/nkhpGC10OVw/mqdefault.jpg",
 //             title: "World&#39;s best surfing 2017",
+//           },
+//           {
+//             id: "v0IX7a7Xsik",
+//             link: "https://www.youtube.com/watch?v=v0IX7a7Xsik",
+//             thumbURL: "https://i.ytimg.com/vi/v0IX7a7Xsik/mqdefault.jpg",
+//             title: "SURFING THE WEDGE WITH WORLD CHAMP BLAIR CONKLIN",
+//           },
+//           {
+//             id: "nkhpGC10OVw",
+//             link: "https://www.youtube.com/watch?v=nkhpGC10OVw",
+//             thumbURL: "https://i.ytimg.com/vi/nkhpGC10OVw/mqdefault.jpg",
+//             title: "World&#39;s best surfing 2017",
+//           },
+//           {
+//             id: "v0IX7a7Xsik",
+//             link: "https://www.youtube.com/watch?v=v0IX7a7Xsik",
+//             thumbURL: "https://i.ytimg.com/vi/v0IX7a7Xsik/mqdefault.jpg",
+//             title: "SURFING THE WEDGE WITH WORLD CHAMP BLAIR CONKLIN",
+//           },
+//           {
+//             id: "nkhpGC10OVw",
+//             link: "https://www.youtube.com/watch?v=nkhpGC10OVw",
+//             thumbURL: "https://i.ytimg.com/vi/nkhpGC10OVw/mqdefault.jpg",
+//             title: "World&#39;s best surfing 2017",
+//           },
+//           {
+//             id: "v0IX7a7Xsik",
+//             link: "https://www.youtube.com/watch?v=v0IX7a7Xsik",
+//             thumbURL: "https://i.ytimg.com/vi/v0IX7a7Xsik/mqdefault.jpg",
+//             title: "SURFING THE WEDGE WITH WORLD CHAMP BLAIR CONKLIN",
+//           },
+//           {
+//             id: "nkhpGC10OVw",
+//             link: "https://www.youtube.com/watch?v=nkhpGC10OVw",
+//             thumbURL: "https://i.ytimg.com/vi/nkhpGC10OVw/mqdefault.jpg",
+//             title: "World&#39;s best surfing 2017",
 //           }
 //         ];
 //
-//
-//
-// let submitButton = document.getElementById("submit-button");
+// let submitButton = document.getElementById("yt-submit");
 // let inputValue;
 // submitButton.addEventListener("click", () => {
 //   displayVideos(responseVids);

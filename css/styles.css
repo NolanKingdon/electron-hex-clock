@@ -6,11 +6,21 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
 }
 
+/*
+============================
+||        Flexes          ||
+============================
+ */
 
+.vertical-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
 
 /*
 ============================
@@ -18,27 +28,30 @@ body {
 ============================
  */
 #clock-body {
+  /* position: absolute;
+  bottom: 30%; */
   transition: 0.5s;
   text-align: center;
-  height: 65vh;
   width: 100%;
+  flex-grow: 0;
+  margin-bottom: 30vh;
 }
 
 #clock-wrapper {
-  margin-top: 32vh;
+
 }
 
 #clock-body h1 {
   color: white;
   font-family: 'Roboto Mono', monospace;
-  font-size: 7vw;
+  font-size: 28pt;
   font-weight: 400;
 }
 
 #clock-body h2 {
   color: white;
   font-family: 'Roboto Mono', monospace;
-  font-size: 4vw;
+  font-size: 16pt;
   font-weight: 400;
 }
 
@@ -48,10 +61,34 @@ body {
 ============================
  */
 
+
+
+ /* width */
+ ::-webkit-scrollbar {
+   height: 5px;
+ }
+
+ /* Track */
+ ::-webkit-scrollbar-track {
+   background: black;
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+   background: #555;
+
+ }
+
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+   background: #333;
+ }
+
  #youtube-body {
-   height: 35vh;
+   min-height: 35vh;
    max-width: 576px; /*This appears to be the max width for a third of my screen*/
    overflow: hidden;
+   flex-grow: 2;
  }
 
 #yt-control-flex {
@@ -76,10 +113,6 @@ body {
   flex-grow: 4;
 }
 
-#yt-submit {
-
-}
-
 .btn {
   border: none;
   background-color: #474747;
@@ -95,9 +128,9 @@ body {
 }
 
 #yt-search-results {
-  display: flex;
   overflow-x: scroll;
   display: none;
+  background-color: rgba(0,0,0, 0.6);
 }
 
 .yt-search-result-item {
@@ -111,6 +144,7 @@ body {
 .yt-search-video-title {
   font-size: 12pt;
   color: white;
+  filter: brightness(80%);
   text-align: center;
   text-transform: capitalize;
   font-family: sans-serif;
