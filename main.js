@@ -1,9 +1,10 @@
 const { app, BrowserWindow } = require('electron');
 const path = require("path");
 const url = require("url");
+require('./js/node/sys-info.js');
+//Server vars and setup
 
-//require('./js/node/sys-info.js');
-
+//Electron Window setup
 let win;
 
 function createWindow(){
@@ -33,11 +34,11 @@ function createWindow(){
   }));
 
   //To open dev tools (Dev only)
-  //win.webContents.openDevTools();
-
+  win.webContents.openDevTools();
   //Handling close
   win.on("closed", () => { win = null });
 }
+
 //Running the build when ready
 app.on("ready", createWindow)
 //Quit

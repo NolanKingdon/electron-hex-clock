@@ -1,5 +1,14 @@
 let si = require('systeminformation');
 let os = require('os');
+const http = require('../../main.js');
+const io = require('socket.io')(http);
+
+io.on('connection', (socket) => {
+  socket.emit('TEST_EMIT', {hello: "world"});
+  socket.on('TEST_RECEIPT', (data)=>{
+    console.log(data);
+  });
+});
 
 // setInterval( ()=> {
 //     si.cpuCurrentspeed()
@@ -8,12 +17,12 @@ let os = require('os');
 //   , 5000)
 //
 // si.cpu()
-//   .then(data => console.log(data));
 
-setInterval(
-  () => console.log(os.cpus()[0].speed)
-  , 3000
-)
-
+setInterval( () => {
+    si.currentLoad()
+      .then( data => console.log(data.currentload))
+      .catch( err => console.log(err));
+  }, 1000
+);
 
 // si.getDynamicData("*","*").then((data) => console.log(data.currentSpeed));
