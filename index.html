@@ -96,7 +96,17 @@
           <button id="increment-time-second" onclick="addSecond()">/\</button>
           <button id="start-timer" onclick="beginCount()">Start</button>
           <!-- Timer Face -->
-          <p id="timer-hours">00</p>
+          <div class="number-container">
+            <!--
+            number-container is our fixed height box around our number to make sure that we don't have any adverse effects
+            from making enough room to scroll
+           -->
+            <div id="hours-invisible-scroll">
+              <!-- Our actual div that scrolls. z-index sits above our hours module. br's give some space to scroll with -->
+              <br/><br/><br/><br/>
+            </div>
+            <p id="timer-hours">00</p>
+          </div>
           <p id="timer-minutes">00</p>
           <p id="timer-seconds">00</p>
           <button id="reset-timer" onclick="clearCount()">Reset</button>

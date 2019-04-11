@@ -64,23 +64,23 @@ body {
 
 
  /* width */
- ::-webkit-scrollbar {
+ #yt-search-results::-webkit-scrollbar {
    height: 5px;
  }
 
  /* Track */
- ::-webkit-scrollbar-track {
+ #yt-search-results::-webkit-scrollbar-track {
    background: black;
  }
 
  /* Handle */
- ::-webkit-scrollbar-thumb {
+ #yt-search-results::-webkit-scrollbar-thumb {
    background: #555;
 
  }
 
  /* Handle on hover */
- ::-webkit-scrollbar-thumb:hover {
+ #yt-search-results::-webkit-scrollbar-thumb:hover {
    background: #333;
  }
 
@@ -169,7 +169,10 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 3;
   grid-row-gap: 0.5em;
+  max-width: 300px;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #timer-topline button {
@@ -196,4 +199,54 @@ body {
 
 #timer-hours::after, #timer-minutes::after {
   content: ":";
+}
+
+/* Experimental Nonsense below */
+
+.number-container {
+  height: 3em;
+  overflow: hidden;
+}
+
+#timer-hours {
+  position: relative;
+  z-index: 1;
+}
+
+/* limiting our size to not mess up the grid */
+
+#hours-invisible-scroll {
+  position: absolute;
+  height: 3em;
+  width: 4em;
+  z-index: 2;
+  overflow: hidden;
+}
+/* Showing our invisible scrollbar and adding scroll functionality on hover */
+#hours-invisible-scroll:hover{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* BELOW --> Setting our scroll bar to be invisible and non-intrusive */
+/* width */
+#hours-invisible-scroll::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+#hours-invisible-scroll::-webkit-scrollbar-track {
+  height: 1px;
+  background: transparent;
+}
+
+/* Handle */
+#hours-invisible-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+
+}
+
+/* Handle on hover */
+#hours-invisible-scroll::-webkit-scrollbar-thumb:hover {
+  background: transparent;
 }

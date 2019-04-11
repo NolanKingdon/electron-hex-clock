@@ -16,46 +16,59 @@ const incTimerMin = document.getElementById("increment-timer-minute"),
 
 let timerInterval;
 let finishedAlert;
+let counting = false;
 
 function addSecond(){
-  seconds.innerHTML = ((parseInt(seconds.innerHTML) + 1).toString().length === 1 ?
-                        "0" + (parseInt(seconds.innerHTML) + 1).toString() :
-                        (parseInt(seconds.innerHTML) + 1).toString());
+  if(!counting){
+    seconds.innerHTML = ((parseInt(seconds.innerHTML) + 1).toString().length === 1 ?
+                      "0" + (parseInt(seconds.innerHTML) + 1).toString() :
+                      (parseInt(seconds.innerHTML) + 1).toString());
+  }
 }
 
 function addMinute(){
-  minutes.innerHTML = ((parseInt(minutes.innerHTML) + 1).toString().length === 1 ?
-                        "0" + (parseInt(minutes.innerHTML) + 1).toString() :
-                        (parseInt(minutes.innerHTML) + 1).toString());
+  if(!counting){
+    minutes.innerHTML = ((parseInt(minutes.innerHTML) + 1).toString().length === 1 ?
+                      "0" + (parseInt(minutes.innerHTML) + 1).toString() :
+                      (parseInt(minutes.innerHTML) + 1).toString());
+  }
 }
 
 function addHour(){
-  hours.innerHTML = ((parseInt(hours.innerHTML) + 1).toString().length === 1 ?
+  if(!counting){
+    hours.innerHTML = ((parseInt(hours.innerHTML) + 1).toString().length === 1 ?
                         "0" + (parseInt(hours.innerHTML) + 1).toString() :
                         (parseInt(hours.innerHTML) + 1).toString());
+  }
 }
 
 function rmvSecond(){
-  seconds.innerHTML = ((parseInt(seconds.innerHTML) - 1).toString().length === 1 ?
+  if(seconds.innerHTML !== "00" && !counting){
+    seconds.innerHTML = ((parseInt(seconds.innerHTML) - 1).toString().length === 1 ?
                         "0" + (parseInt(seconds.innerHTML) - 1).toString() :
                         (parseInt(seconds.innerHTML) - 1).toString());
+  }
 }
 
 function rmvMinute(){
-  minutes.innerHTML = ((parseInt(minutes.innerHTML) - 1).toString().length === 1 ?
+  if(minutes.innerHTML !== "00" && !counting){
+    minutes.innerHTML = ((parseInt(minutes.innerHTML) - 1).toString().length === 1 ?
                         "0" + (parseInt(minutes.innerHTML) - 1).toString() :
                         (parseInt(minutes.innerHTML) - 1).toString());
+  }
 }
 
 function rmvHour(){
-  hours.innerHTML = ((parseInt(hours.innerHTML) - 1).toString().length === 1 ?
-                        "0" + (parseInt(hours.innerHTML) - 1).toString() :
-                        (parseInt(hours.innerHTML) - 1).toString());
+  if(hours.innerHTML !=="00" && !counting){
+    hours.innerHTML = ((parseInt(hours.innerHTML) - 1).toString().length === 1 ?
+                      "0" + (parseInt(hours.innerHTML) - 1).toString() :
+                      (parseInt(hours.innerHTML) - 1).toString());
+
+  }
 }
 
-
-
 function beginCount(){
+  counting = true;
   finishedAlert = new Audio();
   finishedAlert.src = "./media/mp3/old-fashioned-school-bell-daniel_simon.mp3";
   timerInterval = setInterval(
@@ -90,6 +103,7 @@ function beginCount(){
 
 function pauseCount(){
   clearInterval(timerInterval);
+  counting = false;
 }
 
 function clearCount(){
@@ -99,3 +113,20 @@ function clearCount(){
   minutes.innerHTML = "00";
   hours.innerHTML = "00";
 }
+
+//Testing nonsense below
+
+let invisScrollerHours = document.getElementById("hours-invisible-scroll");
+invisScrollerHours.scrollTop = 20;
+invisScrollerHours.addEventListener("scroll", (e)=>{
+  if(e.target.scrollTop == 19){
+    console.log("Scrolled up");
+    addHour();
+  } else if(e.target.scrollTop == 21){
+    console.log("Scrolled Down")
+    rmvHour();
+  }
+  e.target.scrollTop = 20;
+
+}
+)
