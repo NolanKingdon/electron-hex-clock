@@ -127,6 +127,32 @@ invisScrollerHours.addEventListener("scroll", (e)=>{
     rmvHour();
   }
   e.target.scrollTop = 20;
+  }
+)
 
-}
+let invisScrollerMinutes = document.getElementById("minutes-invisible-scroll");
+invisScrollerMinutes.scrollTop = 20;
+invisScrollerMinutes.addEventListener("scroll", (e)=>{
+  if(e.target.scrollTop == 19){
+    console.log("Scrolled up");
+    addMinute();
+  } else if(e.target.scrollTop == 21){
+    console.log("Scrolled Down")
+    rmvMinute();
+  }
+  e.target.scrollTop = 20;
+  }
+)
+let invisScrollerSeconds = document.getElementById("seconds-invisible-scroll");
+invisScrollerSeconds.scrollTop = 20;
+invisScrollerSeconds.addEventListener("scroll", (e)=>{
+  if(e.target.scrollTop == 19){
+    console.log("Scrolled up");
+    addSecond();
+  } else if(e.target.scrollTop == 21){
+    console.log("Scrolled Down")
+    rmvSecond();
+  }
+  e.target.scrollTop = 20;
+  }
 )
