@@ -88,6 +88,26 @@
       <section id="sys-info">
         <script src="./js/comp-data.js"></script>
       </section>
+      <section id="timer">
+        <div id="timer-topline">
+          <!-- Increment row -->
+          <button id="increment-timer-hour" onclick="addHour()">/\</button>
+          <button id="increment-timer-minute" onclick="addMinute()">/\</button>
+          <button id="increment-time-second" onclick="addSecond()">/\</button>
+          <button id="start-timer" onclick="beginCount()">Start</button>
+          <!-- Timer Face -->
+          <p id="timer-hours">00</p>
+          <p id="timer-minutes">00</p>
+          <p id="timer-seconds">00</p>
+          <button id="reset-timer" onclick="clearCount()">Reset</button>
+          <!-- Decrement Row -->
+          <button id="decrement-timer-hour" onclick="rmvHour()">\/</button>
+          <button id="decrement-timer-minute" onclick="rmvMinute()">\/</button>
+          <button id="decrement-timer-second" onclick="rmvSecond()">\/</button>
+          <button id="pause-timer" onclick="pauseCount()">Pause</button>
+        </div>
+        <script src="./js/timer.js"></script>
+      </section>
       <section id = "clock-body">
         <div id = "clock-wrapper">
           <h1 id = "clock"></h1>

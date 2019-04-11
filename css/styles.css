@@ -154,3 +154,46 @@ body {
   width: 150px;
   height: auto;
 }
+
+/*
+============================
+||         Timer          ||
+============================
+ */
+#timer {
+  text-align: center;
+}
+
+#timer-topline {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 3;
+  grid-row-gap: 0.5em;
+  justify-content: center;
+}
+
+#timer-topline button {
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+#timer-topline button:hover {
+  cursor: pointer;
+}
+
+#timer-topline button:focus, #timer-topline button:active {
+  outline: none;
+}
+
+#timer p {
+  display: inline;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 28pt;
+  font-weight: 400;
+}
+
+#timer-hours::after, #timer-minutes::after {
+  content: ":";
+}
