@@ -5,7 +5,7 @@
  */
 
 function loadClient(inputValue) {
-  gapi.client.setApiKey("AIzaSyAH139KPDwovLKqT2l9JTX2rNBnzsp-4jU");
+  gapi.client.setApiKey("");
   return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
       .then(function() {
         console.log("GAPI client loaded for API");
