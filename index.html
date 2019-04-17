@@ -11,10 +11,15 @@
     <div class="vertical-flex">
       <section id = "youtube-body">
         <div id="player"></div>
+        <!-- TODO Switch to CSS marquee for more control -->
+        <marquee id="yt-title-scroll">Test text</marquee>
         <div id="yt-control-flex">
+          <button id= "yt-play-toggle" class="btn" onclick="togglePlaying()">Play</button>
+          <button id= "yt-skip" class="btn" onclick="nextVid()">Next</button>
           <input id = "youtube-input" type = "text"/>
           <button id = "yt-submit" class="btn">Submit</button>
           <button id = "yt-options" class="btn">...</button>
+
         </div>
         <!-- TODO Add in a button to search playlists?/display your existing playlist -->
         <div id="yt-search-results">
@@ -23,11 +28,12 @@
 
         <script>
         //TODO - put this into a seperate file for simplicity sake
-
           const windowWidth = window.innerWidth;
           const playerHeight = windowWidth * 0.61;
           const starterVideo = (Math.floor(Math.random() * 214)).toString();
-
+          let marqueeText = document.getElementById("yt-title-scroll");
+          let playing = false;
+          //TODO - play/pause icons
 
           var tag = document.createElement('script');
 
@@ -45,7 +51,13 @@
                 color: "white",
                 listType: "playlist",
                 list: "PL0KqfOQxyR-MLbyTZLFUQuOfr9V5ElNSc",
-                index: starterVideo,//Work on getting the list to shuffle each time for random videos
+                index: starterVideo,
+                disablekb: 1,//No keyboard controls
+                enablejsapi: 1,//Allowing btn control
+                fs: 0,//Fullscreen off
+                iv_load_policy: 3,//annotations not default
+                modestbranding: 1,//prevents youtube logo
+                controls: 0,
               },
               events: {
                 'onReady': onPlayerReady,
@@ -60,7 +72,16 @@
           var done = false;
 
           function onPlayerStateChange(event) {
-            if(event.data === 3){
+            console.log(player.getVolume());//TODO - volume slider
+            if(event.data === -1){//unstarted
+              let title = player.getVideoData().title;
+              changeMarquee(title);
+            }
+            if(event.data === 1){//playing
+            }
+            if(event.data === 2){//on pause
+            }
+            if(event.data === 3){//buffering
               event.target.setShuffle({'shufflePlayList' : true});
             }
           }
@@ -68,6 +89,23 @@
             console.log("error event:", event);
           }
 
+          function changeMarquee(text){
+            marqueeText.innerHTML = text;
+          }
+
+          function togglePlaying(){
+            if(playing){
+              playing = false;
+              player.pauseVideo();
+            } else if(!playing){
+              playing = true;
+              player.playVideo();
+            }
+          }
+
+          function nextVid(){
+            player.nextVideo();
+          }
           //Handling Video changes
           // let submitButton = document.getElementById("submit-button");
           // submitButton.addEventListener("click", () => {
@@ -91,10 +129,10 @@
       <section id="timer">
         <div id="timer-topline">
           <!-- Increment row -->
-          <button id="increment-timer-hour" onclick="addHour()"><img src="./images/icons/Chevron Up-white.png"/></button>
-          <button id="increment-timer-minute" onclick="addMinute()"><img src="./images/icons/Chevron Up-white.png"/></button>
-          <button id="increment-time-second" onclick="addSecond()"><img src="./images/icons/Chevron Up-white.png"/></button>
-          <button id="start-timer" onclick="beginCount()">Start</button>
+          <button class="timer-controls" onclick="addHour()"><img src="./images/icons/Chevron Up-white.png"/></button>
+          <button class="timer-controls" onclick="addMinute()"><img src="./images/icons/Chevron Up-white.png"/></button>
+          <button class="timer-controls" onclick="addSecond()"><img src="./images/icons/Chevron Up-white.png"/></button>
+          <button class="timer-controls" id="reset-timer" onclick="clearCount()">Reset</button>
           <!-- Timer Face -->
           <div class="number-container">
             <!--
@@ -119,12 +157,12 @@
             </div>
             <p id="timer-seconds">00</p>
           </div>
-          <button id="reset-timer" onclick="clearCount()">Reset</button>
+          <button class="timer-controls" id="start-timer" onclick="beginCount()">Start</button>
           <!-- Decrement Row -->
-          <button id="decrement-timer-hour" onclick="rmvHour()"><img src="./images/icons/Chevron Down-white.png"/></button>
-          <button id="decrement-timer-minute" onclick="rmvMinute()"><img src="./images/icons/Chevron Down-white.png"/></button>
-          <button id="decrement-timer-second" onclick="rmvSecond()"><img src="./images/icons/Chevron Down-white.png"/></button>
-          <button id="pause-timer" onclick="pauseCount()">Pause</button>
+          <button class="timer-controls" onclick="rmvHour()"><img src="./images/icons/Chevron Down-white.png"/></button>
+          <button class="timer-controls" onclick="rmvMinute()"><img src="./images/icons/Chevron Down-white.png"/></button>
+          <button class="timer-controls" onclick="rmvSecond()"><img src="./images/icons/Chevron Down-white.png"/></button>
+          <button class="timer-controls" id="pause-timer" onclick="pauseCount()">Pause</button>
         </div>
         <script src="./js/timer.js"></script>
       </section>
